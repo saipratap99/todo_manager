@@ -17,4 +17,10 @@ class UsersController < ApplicationController
     new_user = User.create!(name: name, email: email, password: password)
     render plain: "Id of new user is #{new_user[:id]}"
   end
+
+  def login
+    email = params[:email]
+    password = params[:password]
+    render plain: User.check_crendentials(email, password)
+  end
 end
