@@ -1,10 +1,10 @@
 body{
   font-family: sans-serif;
-  max-width: 550px;
+  max-width: 600px;
   margin: 0 auto;
   color: #453C52;
-
 }
+
 .Todo-title{
   font-size: 46px;
   line-height: 1.4;
@@ -12,15 +12,18 @@ body{
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .Todo-addBox{
   width: 192px;
   height: 32px;
 }
-.Todo-Calender{
-  width: 93px;
-  height: 32px;
 
+.Todo-Calender{
+  width: 130px;
+  height: 32px;
+  color: rgba(132, 130, 134, 0.733);
 }
+
 .Todo-AddButton{
   border-radius: 5px;
   background-color: #48BB78;
@@ -33,43 +36,58 @@ body{
   width: 72px;
   border: solid 2px #48BB78;
 }
+
 .Todo-AddButton:hover{
   cursor: pointer;
   background-color: rgb(94, 67, 136);
   border: solid 1px rgb(130, 56, 190);
   transition: 0.2s ease-in-out;
 }
+
 .TodoSection-title{
   font-size: 34px;
   line-height: 1.4;
   padding: 5px;
+  align-items: baseline;
+  display: flex;
 }
-.TodoSection-todoCheckbox{
 
+.TodoSection-status{
+  font-size: 15px;
+  padding: 5px;
+  color: gray;
+  margin-left: 10px;
 }
+
 h3{
   font-size: 26px;
   line-height: 1.4;
   padding: 5px;
 }
+
 .TodoSection-todo{
   font-size: 20px;
   line-height: 1.2;
   padding: 5px;
   margin-right: 10px;
 }
-.Todo-dueDate{
-  color: #726A7E;
+
+.TodoSection-dueDate{
   opacity: 0.1px;
-  font-size: 17px;
+  font-size: 15px;
   padding-left: 10px;
+  color: gray;
 }
+
+.Todo-dueDate::placeholder{
+  color: grey;
+}
+
 .TodoSection-todo:hover{
   background-color: rgba(206, 202, 202, 0.897);
   border-radius: 5px;
-
-
 }
+
 .Overdue{
   font-size: 17px;
   line-height: 1.2px;
@@ -77,16 +95,27 @@ h3{
   color: darkred;
 
 }
+
 .TodoSection{
   margin-bottom: 30px;
 }
-p{
+
+li{
+  display: flex;
+  align-items: baseline;
   margin-left: 30px;
 }
 
+.TodoSection-todoDelete{
+  margin-right: 10px;
+  visibility: hidden;
+}
+
+.TodoSection-todo:hover > .TodoSection-todoDelete{
+  visibility: visible;
+}
 
 /*Typography scale
-
 h1-46px
 h2-34px
 h3-26px
