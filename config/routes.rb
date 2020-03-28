@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   #get "todos/:id", to: "todos#show"
   resources :todos, :users
   post "users/:id/login", to: "users#login"
+  root to: "home#index"
 end
