@@ -1,3 +1,79 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.Header{
+  max-width: 98%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: rgba(62, 62, 247, 0.952);
+  color: rgba(255, 255, 255, 0.904);
+  border-radius: 13px;
+  border: 2px solid transparent;
+  text-shadow: 2px 2px 5px rgb(65, 113, 216);
+  box-shadow: 2px 2px 5px rgb(145, 142, 142);
+  position: relative;
+}
+
+.main-body{
+  display: flex;
+  align-items: center;
+}
+
+.home-h2{
+  max-width:  40%;
+  margin: 0 auto;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.get-started{
+  text-align: center;
+  display: block;
+  margin-top:10px;
+  text-decoration: none;
+  background-color: rgb(7, 121, 12);
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.get-started:hover{
+  cursor: pointer;
+  background-color: rgb(94, 67, 136);
+  border: solid 1px rgb(130, 56, 190);
+  transition: 0.2s ease-in-out;
+}
+
+.img-welcomeLeft{
+  padding: 10px;
+  margin-left:40px ;
+}
+
+.img-welcomeRight{
+  padding: 10px;
+  margin-right:40px ;
+}
+
+.Footer{
+  max-width: 98%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: rgba(62, 62, 247, 0.952);
+  color: rgba(255, 255, 255, 0.904);
+  border-radius: 13px;
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 5px rgb(145, 142, 142);
+  }

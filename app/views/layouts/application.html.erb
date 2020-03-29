@@ -4,12 +4,12 @@
     <title>TodoManager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header class="Header"> Todo Management</header>
     <%= yield %>
+    <footer class="Footer"> &copy; All copyrights are reserved.</footer>
   </body>
 </html>
