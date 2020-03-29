@@ -5,7 +5,7 @@
     <input class="Todo-Calender" type="date" placeholder="">
     <input class="Todo-AddButton" type="button" value="Add">
   </form>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: Todo.overdue ,show_date: true } %>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: Todo.due_today ,show_date: false } %>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Later", todos: Todo.due_later ,show_date: true } %>
+  <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: Todo.overdue ,show_date: true ,overdue: true} %>
+  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: Todo.due_today ,show_date: false,overdue:false } %>
+  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Later", todos: Todo.due_later ,show_date: true ,overdue:false} %>
 </article>

@@ -1,10 +1,12 @@
 <ul class="TodoSection">
   <h2 class="TodoSection-title"><%= todo_heading %><span class="TodoSection-status"><%=todos.where(completed:true).count %>/<%=todos.count %></span></h2>
   <% todos.each do |todo| %>
-    <li class="TodoSection-todo">
-      <label for="Todo1">
-        <input class="TodoSection-todoCheckbox" id="Todo1" type="checkbox">
-        <%= todo.todo_text.capitalize%>
+    <li class="TodoSection-todo" >
+      <label for="Todo1" >
+        <input class="TodoSection-todoCheckbox" id="Todo1" type="checkbox" <%=todo.completed ? "checked" : ""%>>
+        <span <%if todo.completed==true%> style="text-decoration:line-through" <%end%>>
+          <%= todo.todo_text.capitalize%>
+        </span>
         <% if show_date %>
           <span class="TodoSection-dueDate"><%= todo.due_date.to_s(:short)%></span>
         <%end%>
