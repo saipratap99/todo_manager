@@ -11,17 +11,23 @@
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+
 }
 
 .Todo-addBox{
+  border: 1px solid gray;
+  border-radius: 5px;
   width: 192px;
-  height: 32px;
+  height: 35px;
+  padding: 2px;
 }
 
 .Todo-Calender{
   width: 130px;
-  height: 32px;
-  color: rgba(132, 130, 134, 0.733);
+  height: 35px;
+  padding: 2px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 
 .Todo-AddButton{
@@ -77,10 +83,6 @@ h3{
   font-size: 15px;
   padding-left: 10px;
   color: gray;
-}
-
-.Todo-dueDate::placeholder{
-  color: grey;
 }
 
 .TodoSection-todo:hover{
