@@ -106,13 +106,16 @@ li{
   margin-left: 30px;
 }
 
-.TodoSection-todoDelete{
+a .TodoSection-todoDelete{
   margin-right: 10px;
   visibility: hidden;
 }
 
-.TodoSection-todo:hover > .TodoSection-todoDelete{
+.TodoSection-todo:hover > a .TodoSection-todoDelete{
   visibility: visible;
+}
+.TodoSection-todo a{
+  margin-left:auto;
 }
 
 /*Typography scale

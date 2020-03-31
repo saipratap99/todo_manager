@@ -24,4 +24,9 @@ class TodosController < ApplicationController
     todo.save!
     render plain: "The todo with id #{id} and marked as completed as #{completed}"
   end
+
+  def destroy
+    Todo.find(params[:id]).destroy
+    redirect_to todos_path
+  end
 end
