@@ -119,7 +119,9 @@ a .TodoSection-todoDelete{
 .TodoSection-todo a{
   margin-left:auto;
 }
-
+.todos-lable{
+  display: flex;
+}
 /*Typography scale
 h1-46px
 h2-34px

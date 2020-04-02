@@ -2,8 +2,14 @@
   <h2 class="TodoSection-title"><%= todo_heading %><span class="TodoSection-status"><%=todos.where(completed:true).count %>/<%=todos.count %></span></h2>
   <% todos.each do |todo| %>
     <li class="TodoSection-todo" >
-      <label for=<%=todo.id%> >
-        <input class="TodoSection-todoCheckbox" id=<%=todo.id%> type="checkbox" <%=todo.completed ? "checked" : ""%>>
+      <label class="todos-lable" for=<%=todo.id%> >
+        <%= form_with(url:"todos/#{todo.id}" ,method: "PUT") do%>
+          <input class="TodoSection-todoCheckbox"
+            name="completed"
+            onclick=this.form.submit() id=<%=todo.id%> type="checkbox"
+            <%=todo.completed ? "checked" : "" %>
+          >
+        <%end%>
         <span <%if todo.completed==true%> style="text-decoration:line-through" <%end%>>
           <%= todo.todo_text.capitalize%>
         </span>
