@@ -1,9 +1,9 @@
 <article class="main-todoBody">
   <h1 class="Todo-title">My Todo-List</h1>
-  <form action="index.html" method="POST">
-    <input class="Todo-addBox" type="text" placeholder="What's next?">
-    <input class="Todo-Calender" type="date" placeholder="">
-    <input class="Todo-AddButton" type="button" value="Add">
+  <form action="/todos" method="POST">
+    <input class="Todo-addBox" type="text" placeholder="What's next?" name="todo_text">
+    <input class="Todo-Calender" type="date" placeholder="Due date" name="due_date">
+    <input class="Todo-AddButton" type="submit" value="Add">
   </form>
   <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: Todo.overdue ,show_date: true ,overdue: true} %>
   <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: Todo.due_today ,show_date: false,overdue:false } %>
