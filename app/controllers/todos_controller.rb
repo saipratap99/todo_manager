@@ -1,6 +1,4 @@
 class TodosController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
   end
 
@@ -10,8 +8,9 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo_text = params[:todo_text]
-    due_date = Date.parse(params[:due_date])
+    todo = params[:todo]
+    todo_text = todo[:todo_text]
+    due_date = Date.parse(todo[:due_date])
     new_todo = Todo.create!(todo_text: todo_text, due_date: due_date, completed: false)
     redirect_to todos_path
   end
