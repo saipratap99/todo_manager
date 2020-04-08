@@ -1,10 +1,10 @@
 <article class="main-todoBody">
   <h1 class="Todo-title">My Todo-List</h1>
-  <form action="/todos" method="POST">
-    <input class="Todo-addBox" type="text" placeholder="What's next?" name="todo_text">
-    <input class="Todo-Calender" type="date" placeholder="Due date" name="due_date">
-    <input class="Todo-AddButton" type="submit" value="Add">
-  </form>
+  <%=form_with scope: :todo,class:"todoAdd-form", local: true do |form| %>
+    <%=form.text_field :todo_text,class:"Todo-addBox",placeholder: "What's next?"%>
+    <%=form.date_field :due_date ,class:"Todo-Calender",placeholder:"DD/MM/YY"%>
+    <%=form.submit "Add",class:"Todo-AddButton",placeholder:"Add"%>
+  <%end%>
   <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: Todo.overdue ,show_date: true ,overdue: true} %>
   <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: Todo.due_today ,show_date: false,overdue:false } %>
   <%= render partial: "todosection-todo",locals: {todo_heading: "Due Later", todos: Todo.due_later ,show_date: true ,overdue:false} %>
