@@ -1,0 +1,10 @@
+<main class="signUpBox">
+  <p class="signUp-login">Already have an account? <a href="">Sign in! </a> </p>
+  <%=form_with url:users_path,class: "signUp-form" do |form| %>
+    <%= form.text_field :first_name, placeholder: "First Name"%><br>
+    <%= form.text_field :last_name, placeholder: "Last Name"%><br>
+    <%= form.email_field :email, placeholder: "Email" %><br>
+    <%= form.password_field :password, placeholder: "Password" %><br>
+    <%= form.submit "Sign up" ,class: "signUp-button"%>
+  <%end%>
+</main>
