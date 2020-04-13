@@ -1,4 +1,6 @@
 class Todo < ActiveRecord::Base
+  belongs_to :user
+
   def to_pleasant_string
     status = completed ? "[X]" : "[ ]"
     "#{id}. #{due_date.to_s(:short)} #{todo_text} #{status}"
