@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :todos, dependent: :destroy
 
   def to_pleasant_string
