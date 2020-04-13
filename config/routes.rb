@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "sign_in", to: "sessions#new", as: :new_session
   post "/sign_in", to: "sessions#create", as: :session
   root to: "home#index"
+  delete "/signout", to: "sessions#destroy", as: :destroy_session
 end

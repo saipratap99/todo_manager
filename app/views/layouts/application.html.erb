@@ -12,8 +12,8 @@
       <%if @current_user%>
       <ul>
         <li class="header-greetings">Hello- <strong><%= @current_user.first_name.capitalize %> </strong></li>
-                <li class="header-buttons"> <%=link_to "Edit Profile",new_session_path%></li>
-        <li class="header-buttons"> <%=link_to "Log Out",new_user_path%></li>
+        <li class="header-buttons"> <%=link_to "Edit Profile",new_session_path%></li>
+        <li class="header-buttons"> <%=link_to "Log Out",destroy_session_path,method: "delete"%></li>
       </ul>
       <% else %>
       <ul>
