@@ -1,5 +1,5 @@
 <main class="signUpBox">
-  <p class="signUp-login">Already have an account? <a href="">Sign in! </a> </p>
+  <p class="signUp-login">Already have an account? <%=link_to "Login here", new_session_path,class:"login-link"%></p>
   <%=form_with url:users_path,class: "signUp-form" do |form| %>
     <%= form.text_field :first_name, placeholder: "First Name"%><br>
     <%= form.text_field :last_name, placeholder: "Last Name"%><br>
