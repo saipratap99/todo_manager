@@ -4,6 +4,8 @@
 
 
 .Header{
+  display: flex;
+  align-items: center;
   max-width: 98%;
   margin: 0 auto;
   padding: 10px;
@@ -77,3 +79,24 @@
   border: 2px solid transparent;
   box-shadow: 2px 2px 5px rgb(145, 142, 142);
   }
+
+.header-greetings{
+  padding: 8px;
+  font-size: 19px;
+  color: white;
+}
+.header-buttons{
+  padding: 8px;
+  font-size: 19px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+.header-buttons > a{
+  color: white;
+  text-decoration: none;
+
+}
+.Header > ul{
+  display: flex;
+  align-items: center;
+}
