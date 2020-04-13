@@ -16,4 +16,8 @@ class Todo < ActiveRecord::Base
   def self.due_later
     where("due_date > ?", Date.parse(Date.today.to_s))
   end
+
+  def self.completed_todos
+    where("completed = ?", true)
+  end
 end

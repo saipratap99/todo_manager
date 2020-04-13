@@ -1,5 +1,5 @@
 <ul class="TodoSection">
-  <h2 class="TodoSection-title"><%= todo_heading %><span class="TodoSection-status"><%=todos.where(completed:true).count %>/<%=todos.count %></span></h2>
+  <h2 class="TodoSection-title"><%= todo_heading %><span class="TodoSection-status"><%=todos.completed_todos.count %>/<%=todos.count %></span></h2>
   <% todos.each do |todo| %>
     <li class="TodoSection-todo" >
       <label class="todos-lable" for=<%=todo.id%> >
