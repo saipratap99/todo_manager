@@ -1,6 +1,6 @@
 <article class="main-todoBody">
   <h1 class="Todo-title">My Todo-List</h1>
-  <%=form_with scope: :todo,class:"todoAdd-form", local: true do |form| %>
+  <%=form_with scope: :todo,local: true,class:"todoAdd-form"  do |form| %>
     <%=form.text_field :todo_text,class:"Todo-addBox",placeholder: "What's next?"%>
     <%=form.date_field :due_date ,class:"Todo-Calender",placeholder:"DD/MM/YY"%>
     <%=form.submit "Add",class:"Todo-AddButton",placeholder:"Add"%>

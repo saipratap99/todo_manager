@@ -10,9 +10,15 @@ class TodosController < ApplicationController
   def create
     todo = params[:todo]
     todo_text = todo[:todo_text]
-    due_date = Date.parse(todo[:due_date])
-    new_todo = Todo.create!(todo_text: todo_text, due_date: due_date, completed: false, user_id: current_user.id)
-    redirect_to todos_path
+    due_date = todo[:due_date].empty? ? nil : Date.parse(todo[:due_date])
+    new_todo = Todo.new(todo_text: todo_text, due_date: due_date, completed: false, user_id: current_user.id)
+    if new_todo.save
+      flash[:notice] = "Your todo is successfully created"
+      redirect_to todos_path
+    else
+      flash[:error] = new_todo.errors.full_messages
+      redirect_to todos_path
+    end
   end
 
   def update

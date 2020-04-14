@@ -101,7 +101,7 @@
   align-items: center;
 }
 
-.notice , .alert{
+.notice , .alert,#error_explanation{
   font-family: sans-serif;
   max-width: 50%;
   margin: 0 auto;
@@ -114,9 +114,8 @@
   color: darkgreen;
   font-size: 20px;
 }
-.alert{
-  background-color: rgba(250, 129, 108, 0.897);
+.alert,#error_explanation{
+  background-color: rgba(252, 155, 138, 0.753);
   border: 2px solid darkred;
   color: darkred;
-
 }

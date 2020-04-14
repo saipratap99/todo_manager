@@ -24,11 +24,22 @@
     </header>
 
     <%if notice%>
-      <p class="notice"><%= flash.notice %></p>
+      <p class="notice"><%= notice %></p>
     <%end%>
-    <%if alert%>
-      <p class="alert"><%= flash.alert %></p>
+    <%if flash.alert%>
+      <p class="alert"><%= alert %></p>
     <%end%>
+    <% if flash[:error] %>
+      <div id="error_explanation">
+        <h2><%= pluralize(flash[:error].count, "error") %> prohibited this todo from being saved:</h2>
+        <ul>
+          <% flash[:error].each_with_index do |msg,index| %>
+            <li><%= "#{index + 1}.#{msg}" %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
 
     <%= yield %>
     <footer class="Footer"> &copy; All copyrights are reserved.</footer>
