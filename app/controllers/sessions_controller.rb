@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def new
+    if current_user
+      flash[:notice] = "You're already signed in user!"
+      redirect_to root_path
+    end
   end
 
   def create
