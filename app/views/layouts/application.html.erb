@@ -22,6 +22,14 @@
       </ul>
       <%end%>
     </header>
+
+    <%if notice%>
+      <p class="notice"><%= flash.notice %></p>
+    <%end%>
+    <%if alert%>
+      <p class="alert"><%= flash.alert %></p>
+    <%end%>
+
     <%= yield %>
     <footer class="Footer"> &copy; All copyrights are reserved.</footer>
   </body>

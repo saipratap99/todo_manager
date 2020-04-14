@@ -100,3 +100,23 @@
   display: flex;
   align-items: center;
 }
+
+.notice , .alert{
+  font-family: sans-serif;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(129, 241, 129, 0.897);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid darkgreen;
+  color: darkgreen;
+  font-size: 20px;
+}
+.alert{
+  background-color: rgba(250, 129, 108, 0.897);
+  border: 2px solid darkred;
+  color: darkred;
+
+}
