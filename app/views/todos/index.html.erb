@@ -5,7 +5,7 @@
     <%=form.date_field :due_date ,class:"Todo-Calender",placeholder:"DD/MM/YY"%>
     <%=form.submit "Add",class:"Todo-AddButton",placeholder:"Add"%>
   <%end%>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: Todo.overdue ,show_date: true ,overdue: true} %>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: Todo.due_today ,show_date: false,overdue:false } %>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Later", todos: Todo.due_later ,show_date: true ,overdue:false} %>
+  <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: @current_user.todos.overdue ,show_date: true ,overdue: true} %>
+  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: @current_user.todos.due_today ,show_date: false,overdue:false } %>
+  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Later", todos: @current_user.todos.due_later ,show_date: true ,overdue:false} %>
 </article>
