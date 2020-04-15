@@ -1,23 +1,34 @@
-<ul class="TodoSection">
-  <h2 class="TodoSection-title"><%= todo_heading %><span class="TodoSection-status"><%=todos.completed_todos.count %>/<%=todos.count %></span></h2>
+<ul class = "TodoSection">
+  <h2 class = "TodoSection-title">  <%= todo_heading %>
+    <span class = "TodoSection-status">
+      <%= todos.completed_todos.count %>/<%= todos.count %>
+    </span>
+  </h2>
   <% todos.each do |todo| %>
     <li class="TodoSection-todo" >
-      <label class="todos-lable" for=<%=todo.id%> >
-        <%= form_with(url:"todos/#{todo.id}" ,method: "PUT") do%>
-          <input class="TodoSection-todoCheckbox"
-            name="completed"
-            onclick=this.form.submit() id=<%=todo.id%> type="checkbox"
-            <%=todo.completed ? "checked" : "" %>
+      <label class = "todos-lable" for=<%= todo.id %> >
+        <%= form_with( url: "todos/#{todo.id}" , method: "PUT" ) do%>
+          <input class = "TodoSection-todoCheckbox"
+                 name = "completed"
+                 onclick = this.form.submit()
+                 id = <%= todo.id %>
+                 type = "checkbox"
+                 <%= todo.completed ? "checked" : "" %>
           >
-        <%end%>
-        <span <%if todo.completed==true%> style="text-decoration:line-through" <%end%>>
-          <%= todo.todo_text.capitalize%>
+        <% end %>
+        <span <% if todo.completed %>
+              style = "text-decoration:line-through"
+               <% end %>
+        >
+          <%= todo.todo_text.capitalize %>
         </span>
         <% if show_date %>
-          <span class="TodoSection-dueDate"><%= todo.due_date.to_s(:short)%></span>
-        <%end%>
+          <span class = "TodoSection-dueDate">
+            <%= todo.due_date.to_s(:short) %>
+          </span>
+        <% end %>
       </label>
-      <%= link_to todo,method: :delete, data: {confirm: 'Are you sure?'} do %>
+      <%= link_to todo, method: :delete, data: {confirm: 'Are you sure?'} do %>
         <%= image_tag "trash.png", class: "TodoSection-todoDelete" %>
       <% end %>
     </li>

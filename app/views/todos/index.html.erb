@@ -1,11 +1,34 @@
 <article class="main-todoBody">
   <h1 class="Todo-title">My Todo-List</h1>
-  <%=form_with scope: :todo,local: true,class:"todoAdd-form"  do |form| %>
-    <%=form.text_field :todo_text,class:"Todo-addBox",placeholder: "What's next?"%>
-    <%=form.date_field :due_date ,class:"Todo-Calender",placeholder:"DD/MM/YY"%>
-    <%=form.submit "Add",class:"Todo-AddButton",placeholder:"Add"%>
+  <%= form_with scope: :todo, local: true, class:"todoAdd-form" do |form| %>
+    <%= form.text_field :todo_text,
+                        class:"Todo-addBox",
+                        placeholder: "What's next?",
+                        autofocus:"autofocus"
+    %>
+    <%= form.date_field :due_date,
+                        class:"Todo-Calender",
+                        placeholder:"DD/MM/YY",
+                        autofocus:"autofocus"
+    %>
+    <%= form.submit "Add",
+                    class:"Todo-AddButton",
+                    placeholder:"Add" %>
   <%end%>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Overdue" , todos: @current_user.todos.overdue ,show_date: true ,overdue: true} %>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Today", todos: @current_user.todos.due_today ,show_date: false,overdue:false } %>
-  <%= render partial: "todosection-todo",locals: {todo_heading: "Due Later", todos: @current_user.todos.due_later ,show_date: true ,overdue:false} %>
+  <%= render partial: "todosection-todo",
+             locals: {todo_heading: "Overdue",
+                      todos: @current_user.todos.overdue ,
+                      show_date: true ,
+                      overdue: true }
+  %>
+  <%= render partial: "todosection-todo",
+             locals: {todo_heading: "Due Today",
+                      todos: @current_user.todos.due_today ,
+                      show_date: false,
+                      overdue:false }
+  %>
+  <%= render partial: "todosection-todo",
+             locals: {todo_heading: "Due Later",
+                      todos: @current_user.todos.due_later ,
+                      show_date: true ,overdue:false} %>
 </article>

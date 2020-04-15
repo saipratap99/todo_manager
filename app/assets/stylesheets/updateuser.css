@@ -1,0 +1,70 @@
+
+.updateUser-box{
+  font-family: sans-serif;
+  max-width: 500px;
+  margin: 20px auto;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px gray;
+}
+.updateUser-box #edit_user{
+  border-bottom: 2px dotted grey;
+}
+.edit_user input[type="email"],input[type="password"]{
+  display: block;
+  margin : 10px auto;
+  width: 400px;
+  font-size: 25px;
+  padding: 5px;
+  text-align: center;
+  border: 2px solid rgb(65, 113, 216);
+  border-radius: 10px;
+
+}
+#edit_user input[type="submit"]{
+  display: block;
+  margin: 10px auto;
+  margin: 20px auto;
+  width: 400px;
+  text-align: center;
+  background-color: rgb(37, 168, 37);
+  color: white;
+  font-weight: bold;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+}
+.updateUser-cancelAccount{
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px dotted grey;
+}
+.updateUser-cancelAccount input[type="submit"]{
+  background-color: tomato;
+  display: block;
+  margin: 10px auto;
+  margin: 20px auto;
+  width: 400px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+}
+.updateUser-box a{
+  background-color: rgb(37, 168, 37);
+  display: block;
+  margin: 10px auto;
+  width: 400px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+  text-decoration: none;
+}

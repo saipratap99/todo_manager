@@ -10,28 +10,43 @@
   <body>
     <header class="Header"> Todo Management
       <%if @current_user%>
-      <ul>
-        <li class="header-greetings">Hello- <strong><%= @current_user.first_name.capitalize %> </strong></li>
-        <li class="header-buttons"> <%=link_to "Edit Profile",new_session_path%></li>
-        <li class="header-buttons"> <%=link_to "Log Out",destroy_session_path,method: "delete"%></li>
-      </ul>
+        <ul>
+          <li class="header-greetings">Hello
+            <%= @current_user.first_name.capitalize %>
+          </li>
+          <li class="header-buttons">
+            <%= link_to "Edit Profile", edit_user_path(@current_user.id) %>
+          </li>
+          <li class="header-buttons">
+            <%= link_to "Log Out",
+                        destroy_session_path,
+                        method: "delete",
+                        data: {confirm:'Are you sure to logOut'}
+            %>
+          </li>
+        </ul>
       <% else %>
-      <ul>
-        <li class="header-buttons"> <%=link_to "Sign In",new_session_path%></li>
-        <li class="header-buttons"> <%=link_to "Sign Up",new_user_path%></li>
-      </ul>
+        <ul>
+          <li class="header-buttons">
+            <%= link_to "Sign In", new_session_path %>
+          </li>
+          <li class="header-buttons">
+            <%= link_to "Sign Up",new_user_path %>
+          </li>
+        </ul>
       <%end%>
     </header>
-
-    <%if notice%>
+    <% if notice %>
       <p class="notice"><%= notice %></p>
     <%end%>
-    <%if flash.alert%>
+    <% if flash.alert %>
       <p class="alert"><%= alert %></p>
     <%end%>
     <% if flash[:error] %>
       <div id="error_explanation">
-        <h2><%= pluralize(flash[:error].count, "error") %> prohibited this todo from being saved:</h2>
+        <h2>
+          <%= pluralize(flash[:error].count, "error") %> prohibited this todo from being saved:
+        </h2>
         <ul>
           <% flash[:error].each_with_index do |msg,index| %>
             <li><%= "#{index + 1}.#{msg}" %></li>
@@ -39,8 +54,6 @@
         </ul>
       </div>
     <% end %>
-
-
     <%= yield %>
     <footer class="Footer"> &copy; All copyrights are reserved.</footer>
   </body>

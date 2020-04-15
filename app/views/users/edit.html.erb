@@ -1,0 +1,29 @@
+<main class="updateUser-box">
+  <%= form_with url: user_path, method: :put,id: "edit_user" do |form| %>
+    <%= form.password_field :password,
+                             placeholder: "Password",
+                             autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.password_field :password_confirmation,
+                             placeholder: "Conifrm new Password",
+                             autofocus: true
+    %>
+    <br>
+    <%= form.password_field :current_password,
+                             placeholder: "Current Password",
+                             autofocus: "autofocus"
+    %>
+    <br>
+    <%= form.submit "Update" %>
+  <% end %>
+  <h3 class="updateUser-cancelAccount">
+    Unhappy? Cancel my account
+    <%= button_to "Cancel my account",
+                  user_path,
+                  data: { confirm: "Are you sure?" },
+                  method: :delete
+    %>
+  </h3>
+  <%= link_to "Back to Todos", :back %>
+</main>

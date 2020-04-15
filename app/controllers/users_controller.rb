@@ -38,4 +38,36 @@ class UsersController < ApplicationController
     password = params[:password]
     render plain: User.check_crendentials(email, password)
   end
+
+  def edit
+    current_user
+  end
+
+  def update
+    user = current_user
+    password = params[:password]
+    password_confirmation = params[:password_confirmation]
+    current_password = params[:current_password]
+    if user.authenticate(current_password)
+      if password == password_confirmation
+        flash[:notice] = "Password updated successfully"
+        user.update!(password: password)
+        redirect_to todos_path
+      else
+        flash[:alert] = "New passwords doesnt match"
+        redirect_to edit_user_path
+      end
+    else
+      flash[:alert] = "Your current password is incorrect"
+      redirect_to edit_user_path
+    end
+  end
+
+  def destroy
+    current_user.destroy
+    session[:current_user_id] = nil
+    @current_user = nil
+    flash[:notice] = "Your account deleted successfully!Hope you will be back"
+    redirect_to root_path
+  end
 end

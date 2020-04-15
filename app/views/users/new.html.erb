@@ -1,10 +1,29 @@
 <main class="signUpBox">
-  <p class="signUp-login">Already have an account? <%=link_to "Login here", new_session_path,class:"login-link"%></p>
-  <%=form_with url:users_path,class: "signUp-form" do |form| %>
-    <%= form.text_field :first_name, placeholder: "First Name"%><br>
-    <%= form.text_field :last_name, placeholder: "Last Name"%><br>
-    <%= form.email_field :email, placeholder: "Email" %><br>
-    <%= form.password_field :password, placeholder: "Password" %><br>
-    <%= form.submit "Sign up" ,class: "signUp-button"%>
+  <p class="signUp-login">
+    Already have an account?
+    <%= link_to "Login here", new_session_path, class:"login-link" %>
+  </p>
+  <%= form_with url: users_path, class: "signUp-form" do |form| %>
+    <%= form.text_field :first_name,
+                         placeholder: "First Name",
+                         autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.text_field :last_name,
+                         placeholder: "Last Name",
+                         autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.email_field :email,
+                          placeholder: "Email",
+                          autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.password_field :password,
+                             placeholder: "Password",
+                             autofocus:"autofocus"
+    %>
+    <br>
+    <%= form.submit "Sign up", class: "signUp-button"%>
   <%end%>
 </main>
