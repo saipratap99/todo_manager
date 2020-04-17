@@ -1,29 +1,29 @@
-<ul class = "TodoSection">
-  <h2 class = "TodoSection-title">  <%= todo_heading %>
-    <span class = "TodoSection-status">
+<ul class="TodoSection">
+  <h2 class="TodoSection-title">  <%= todo_heading %>
+    <span class="TodoSection-status">
       <%= todos.completed_todos.count %>/<%= todos.count %>
     </span>
   </h2>
   <% todos.each do |todo| %>
     <li class="TodoSection-todo" >
-      <label class = "todos-lable" for=<%= todo.id %> >
+      <label class="todos-lable" for=<%= todo.id %> >
         <%= form_with( url: "todos/#{todo.id}" , method: "PUT" ) do%>
-          <input class = "TodoSection-todoCheckbox"
-                 name = "completed"
+          <input class="TodoSection-todoCheckbox"
+                 name="completed"
                  onclick = this.form.submit()
-                 id = <%= todo.id %>
-                 type = "checkbox"
+                 id=<%= todo.id %>
+                 type="checkbox"
                  <%= todo.completed ? "checked" : "" %>
           >
         <% end %>
         <span <% if todo.completed %>
-              style = "text-decoration:line-through"
+              style="text-decoration:line-through"
                <% end %>
         >
           <%= todo.todo_text.capitalize %>
         </span>
         <% if show_date %>
-          <span class = "TodoSection-dueDate">
+          <span class="TodoSection-dueDate">
             <%= todo.due_date.to_s(:short) %>
           </span>
         <% end %>

@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    #memorization
     return @current_user if @current_user
 
     current_user_id = session[:current_user_id]
