@@ -13,6 +13,7 @@ class TodosController < ApplicationController
     due_date = todo[:due_date].empty? ? nil : Date.parse(todo[:due_date])
     new_todo = Todo.new(todo_text: todo_text, due_date: due_date, completed: false, user_id: current_user.id)
     if new_todo.save
+      TodoMailer.with(todo_text: new_todo.todo_text, due_date: new_todo.due_date, email: @current_user.email, name: @current_user.first_name).upcoming_todo.deliver_now
       flash[:notice] = "Your todo is successfully created"
       redirect_to todos_path
     else
