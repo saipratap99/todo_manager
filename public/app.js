@@ -22,6 +22,13 @@ const closeAlbum = document.getElementById("albums-close");
 const closeRecent = document.getElementById("recent-close");
 const albumsdiv = document.getElementById("albums");
 const recentdiv = document.getElementById("recent");
+const initialContent = document.querySelector(".initial-loading");
+const langContent = document.querySelector(".lang-select-loading");
+const card = document.getElementsByClassName("card-div");
+
+// added varibles
+
+const albumCards = document.getElementsByClassName("album-cards");
 
 $(document).ready(function () {
   console.log("page loaded");
@@ -104,6 +111,7 @@ let updateSeekBar = () => {
 };
 
 function playSong(id, name) {
+  play.classList.add("song-load");
   document.getElementById("current-song-title").innerText = name;
   var songurl = document.getElementsByClassName(id)[0].value;
   document.getElementById("play-song").innerHTML =
@@ -115,6 +123,7 @@ function playSong(id, name) {
   current_song = document.getElementById("current-song");
   current_song.oncanplaythrough = () => {
     playpause();
+    play.classList.remove("song-load");
     current_song.ontimeupdate = updatePlayTime;
     seekBar.max = current_song.duration;
   };
@@ -201,6 +210,44 @@ function playPrev() {
   }
 }
 
+// remove album card on resizing in home page
+let album_card;
+let displayCards = () => {
+  // let lenCards = albumCards.length;
+  for (let i = 0; i < albumCards.length; i++) {
+    album_card = albumCards[i].getElementsByClassName("album-card");
+    if (window.innerWidth >= 1200) {
+      [...album_card].forEach((item) => (item.style.display = "inline-block"));
+    } else if (window.innerWidth >= 992 && window.innerWidth < 1200) {
+      album_card[4].style.display = "none";
+      album_card[3].style.display = "inline-block";
+      album_card[2].style.display = "inline-block";
+    } else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+      album_card[4].style.display = "none";
+      album_card[3].style.display = "none";
+      album_card[2].style.display = "inline-block";
+    } else if (window.innerWidth < 768) {
+      album_card[4].style.display = "none";
+      album_card[3].style.display = "none";
+      album_card[2].style.display = "none";
+    }
+  }
+};
+
+let changeContent = () => {
+  if (lang.value === "") {
+    langContent.style.display = "none";
+    initialContent.style.display = "block";
+    albumsdiv.previousElementSibling.children[0].innerText = "Trending";
+    mobAlbum.innerText = "Trending";
+  } else {
+    langContent.style.display = "block";
+    initialContent.style.display = "none";
+    albumsdiv.previousElementSibling.children[0].innerText = "Albums";
+    mobAlbum.innerText = "Albums";
+  }
+};
+
 // search bar
 
 // on focus
@@ -262,7 +309,11 @@ var resize_mob = () => {
 };
 
 resize_mob();
-window.addEventListener("resize", resize_mob);
+displayCards();
+window.addEventListener("resize", () => {
+  resize_mob();
+  displayCards();
+});
 
 // on click of albums btn
 
@@ -310,4 +361,15 @@ recentdiv.addEventListener("click", (event) => {
     mobRecent.style.display = "block";
     document.querySelector(".recent").style.display = "none";
   }
+});
+
+lang.addEventListener("change", changeContent);
+[...card].forEach((item, index) => {
+  item.addEventListener("click", () => {
+    const language = card[index].parentElement.parentElement.classList[1];
+    lang.value = language;
+    console.log(language);
+    changeContent();
+    //alert("Ddd");
+  });
 });
